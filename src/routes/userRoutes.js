@@ -6,8 +6,8 @@ import loginRequired from '../middlewares/loginRequired.js';
 const router = Router();
 
 //Não precisa existir
-//router.get('/:id', userController.show); //Mostra um usuário
-//router.get('/', userController.index); //Lista todos usuários
+router.get('/:id', userController.show); //Mostra um usuário
+router.get('/', userController.index); //Lista todos usuários
 
 router.post('/', userController.store);
 router.put('/',loginRequired, userController.update);
