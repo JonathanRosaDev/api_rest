@@ -19,7 +19,7 @@ export default defineConfig([
       "no-trailing-spaces": "error",
       "eol-last": ["error", "always"],
       "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }], // máximo 1 linha em branco
-      "class-method-use-this": "off"
+      "class-method-use-this": "off",
     },
   },
 ]);
