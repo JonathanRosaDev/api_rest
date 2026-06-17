@@ -1,4 +1,6 @@
 import multer from 'multer';
+import { resolve } from 'path';
+import { promises as fs } from 'fs';
 import multerConfig from '../config/multerConfig.js';
 
 import Photo from '../models/Photo.js';
@@ -15,10 +17,25 @@ class PhotoController {
       }
 
       const { originalname, filename } = req.file;
-      const { aluno_id } = req.body;
-      const photo = await Photo.create({ originalname, filename, aluno_id });
 
-      return res.json(photo);
+      try {
+        const { aluno_id } = req.body;
+        const photo = await Photo.create({ originalname, filename, aluno_id });
+
+        return res.json(photo);
+      } catch {
+        const filePath = resolve(__dirname, '..', '..', 'uploads', filename);
+
+        try {
+          await fs.unlink(filePath);
+        } catch (unlinkError) {
+          console.error('Falha ao remover arquivo órfão:', unlinkError);
+        }
+
+        return res.status(400).json({
+          errors: ['Aluno não existe.'],
+        });
+      }
     });
   }
 }
