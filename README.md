@@ -10,9 +10,10 @@ API REST para gerenciamento de usuários, alunos e fotos, desenvolvida com Node.
 
 Para testar as rotas protegidas localmente, utilize as credenciais abaixo no endpoint POST /tokens:
 
-Campo              Valor
-email              demo@teste.com
-password           123456
+
+email: demo@teste.com
+password: 123456
+
 
 🚀 Tecnologias
 
@@ -31,17 +32,19 @@ Swagger (OpenAPI 3.0) — Documentação interativa
 
 🔑 Tokens (Autenticação)
 
-Método           Rota        Descrição                            Auth
-POST             /tokens     Realiza login e gera token JWT        ❌
+
+POST /tokens — Realiza login e gera token JWT
+
 
 👥 Users (Usuários)
 
-Método           Rota        Descrição                            Auth
-GET              /users      Lista todos os usuários               ❌
-GET              /users/:id  Mostra um usuário específico          ❌
-POST             /users      Cria um novo usuário                  ✅
-PUT              /users      Edita o próprio usuário autenticado   ✅
-DELETE           /users      Deleta o próprio usuário autenticado  ✅
+
+GET /users — Lista todos os usuários
+GET /users/:id — Mostra um usuário específico
+POST /users — Cria um novo usuário 🔒
+PUT /users — Edita o próprio usuário autenticado 🔒
+DELETE /users — Deleta o próprio usuário autenticado 🔒
+
 
 
 ⚠️ Um usuário só pode editar e deletar a si mesmo.
@@ -50,17 +53,19 @@ DELETE           /users      Deleta o próprio usuário autenticado  ✅
 
 🎓 Alunos
 
-Método           Rota         Descrição                          Auth
-GET              /alunos      Lista todos os alunos               ❌
-GET              /alunos/:id  Mostra um aluno específico          ❌
-POST             /alunos      Cria um novo aluno                  ✅
-PUT              /alunos/:id  Edita um aluno                      ✅
-DELETE           /alunos/:id  Deleta um aluno                     ✅
+
+GET /alunos — Lista todos os alunos
+GET /alunos/:id — Mostra um aluno específico
+POST /alunos — Cria um novo aluno 🔒
+PUT /alunos/:id — Edita um aluno 🔒
+DELETE /alunos/:id — Deleta um aluno 🔒
+
 
 📷 Photos (Fotos)
 
-Método           Rota         Descrição                          Auth
-POST             /photos      Adiciona uma foto a um aluno       ✅
+
+POST /photos — Adiciona uma foto a um aluno 🔒
+
 
 
 Um aluno pode ter várias fotos. O upload usa multipart/form-data com os campos photo (arquivo) e aluno_id.
@@ -114,11 +119,10 @@ A API estará disponível em http://localhost:3001 e a documentação em http://
 📦 Build para produção
 
 bashnpm run build
+npm start
 
 Os arquivos compilados serão gerados na pasta dist/.
 
-bashnpm start
-
 📄 Licença
 
-Este projeto foi para estudar as tecnologias listadas.
+Este projeto foi desenvolvido para estudar as tecnologias listadas.
