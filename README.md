@@ -1,5 +1,3 @@
-api_rest
-
 API REST para gerenciamento de usuários, alunos e fotos, desenvolvida com Node.js, Express e Sequelize.
 
 🔗 Links
