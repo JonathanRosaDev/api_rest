@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec sucrase-node server.js",
+    "dev": "nodemon --exec sucrase-node src/server.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
     "start": "node dist/server.js"
   },
@@ -40,6 +40,8 @@
     "jsonwebtoken": "^9.0.3",
     "mariadb": "^3.5.3",
     "multer": "^2.2.0",
-    "sequelize": "^6.37.8"
+    "sequelize": "^6.37.8",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
   }
 }

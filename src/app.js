@@ -6,6 +6,8 @@ dotenv.config();
 import './database';
 
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './swagger.js';
 import homeRoutes from './routes/homeRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import tokenRoutes from './routes/tokenRoutes.js';
@@ -23,6 +25,7 @@ class App {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
     this.app.use('/images/', express.static(resolve(__dirname,'..', 'uploads', 'images')));
+    this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   }
 
   routes() {
