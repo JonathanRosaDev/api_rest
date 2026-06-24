@@ -80,11 +80,9 @@ Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 ```env
 APP_PORT=3001
 APP_URL=http://localhost:3001
-DB_HOST=localhost
-DB_USER=seu_usuario
-DB_PASS=sua_senha
-DB_NAME=nome_do_banco
-DB_DIALECT=mariadb
+DATABASE_HOST=localhost
+DATABASE_USERNAME=seu_usuario
+DATABASE_PASSWORD=sua_senha
 TOKEN_SECRET=sua_chave_secreta
 TOKEN_EXPIRATION=7d
 ```
